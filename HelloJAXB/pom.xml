@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.davphillips</groupId>
+	<artifactId>hello-jaxb-schemagen</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Hello JAXB schemagen</name>
+	<description>Trying out the schema generating capabilities of the Java Architecture for XML Binding ( JAXB )</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb</artifactId>
+			<version>2.1.9</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>target/generated-resources/schemagen</directory>
+				<includes>
+					<include>**/*.xsd</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.5</version>
+				<configuration>
+					<includes>
+						<include>com/davphillips/library/*.java</include>
+					</includes>
+					<transformSchemas>
+						<schema>
+							<uri>http://projects.davphillips.com</uri>
+							<toFile>book.xsd</toFile>
+						</schema>
+					</transformSchemas>
+				</configuration>
+				<executions>
+					<execution>
+						<id>invoke_schemagen</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>schemagen</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

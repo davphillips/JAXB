@@ -16,7 +16,7 @@ public class Book {
 	private String title;
 
 	@XmlElement(name = "authorName", required = true)
-	private AuthorName authorName;
+	private PersonName authorName;
 
 	@XmlAttribute(name = "contentCategory", required = true)
 	private BookContentCategory contentCategory;
@@ -25,7 +25,7 @@ public class Book {
 		super();
 	}
 
-	public Book(String title, AuthorName authorName,
+	public Book(String title, PersonName authorName,
 			BookContentCategory contentCategory) {
 		super();
 		this.title = title;
@@ -33,11 +33,11 @@ public class Book {
 		this.contentCategory = contentCategory;
 	}
 
-	public AuthorName getAuthorName() {
+	public PersonName getAuthorName() {
 		return authorName;
 	}
 
-	public void setAuthorName(AuthorName authorName) {
+	public void setAuthorName(PersonName authorName) {
 		this.authorName = authorName;
 	}
 

@@ -5,10 +5,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(name = "authorName", propOrder = { "firstName", "middleName",
+@XmlType(name = "personName", propOrder = { "firstName", "middleName",
 		"lastName" })
 @XmlAccessorType(value = XmlAccessType.FIELD)
-public class AuthorName {
+public class PersonName {
 
 	@XmlElement(name = "firstName", required = true)
 	private String firstName;
@@ -19,11 +19,11 @@ public class AuthorName {
 	@XmlElement(name = "lastName", required = true)
 	private String lastName;
 
-	public AuthorName() {
+	public PersonName() {
 		super();
 	}
 
-	public AuthorName(String firstName, String middleName, String lastName) {
+	public PersonName(String firstName, String middleName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;

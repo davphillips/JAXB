@@ -83,4 +83,11 @@ public class BookTest {
 		this.testBook("/invalid_book_2.xml");
 	}
 
+	@Test(expected = UnmarshalException.class)
+	public void testInvalidBook3() throws JAXBException, FileNotFoundException,
+			SAXException, URISyntaxException {
+
+		this.testBook("/invalid_book_3.xml");
+	}
+
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dsp:book xmlns:dsp="http://projects.davphillips.com" contentCategory="FICTION">
+<dsp:book xmlns:dsp="http://projects.davphillips.com" contentCategory="FOO">
 	<dsp:title>JAXB For Dummies</dsp:title>
 	 <dsp:authorName>
-	 	<!-- <dsp:firstName>David</dsp:firstName> -->
+		<dsp:firstName>David</dsp:firstName>
 		<dsp:middleName>Sutherland</dsp:middleName>
 		<dsp:lastName>Phillips</dsp:lastName>
 	</dsp:authorName>

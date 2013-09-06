@@ -2,6 +2,7 @@ package com.davphillips.library;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -17,13 +18,19 @@ public class Book {
 	@XmlElement(name = "authorName", required = true)
 	private AuthorName authorName;
 
+	@XmlAttribute(name = "contentCategory", required = true)
+	private BookContentCategory contentCategory;
+
 	public Book() {
 		super();
 	}
 
-	public Book(AuthorName authorName) {
+	public Book(String title, AuthorName authorName,
+			BookContentCategory contentCategory) {
 		super();
+		this.title = title;
 		this.authorName = authorName;
+		this.contentCategory = contentCategory;
 	}
 
 	public AuthorName getAuthorName() {
@@ -40,6 +47,14 @@ public class Book {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public BookContentCategory getContentCategory() {
+		return contentCategory;
+	}
+
+	public void setContentCategory(BookContentCategory contentCategory) {
+		this.contentCategory = contentCategory;
 	}
 
 }
